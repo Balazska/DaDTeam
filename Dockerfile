@@ -10,4 +10,6 @@ FROM $BASE_CONTAINER
 
 # Copy package.json and package-lock.json
 COPY ./DaDTeam_milestone_I.ipynb ./
+USER root
+RUN chown jovyan:users ./DaDTeam_milestone_I.ipynb
 
