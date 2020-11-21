@@ -42,3 +42,8 @@ After that, the jupyter notebook server can be reached at the http://localhost:8
 
 
 ## Milestore II.
+
+### Docker
+```
+docker run -p 8888:8888 --name dadteam_milestone2 balazska/dadteam:milestone2_v1
+```
