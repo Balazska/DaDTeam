@@ -39,3 +39,6 @@ There is a docker repository for this project, the docker image containing the n
 docker run -p 8888:8888 --name dadteam_milestone1 balazska/dadteam:milestone1_v1
 ```
 After that, the jupyter notebook server can be reached at the http://localhost:8888/?token=TOKEN url, the full url will be displayed in the terminal window. 
+
+
+## Milestore II.
