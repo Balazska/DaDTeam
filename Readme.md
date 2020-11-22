@@ -69,7 +69,7 @@ We utilized a simple sequence to sequence model with LSTM encoder and decoder. T
 As we can see after the tokenized input is given to the Input layer of the decoder/encoder an Embedding layer takes each token (word) and converts them to a fixed sized vector. For embedding we used the **GLoVe.6B.100d** which was trained on 6 billion tokens and has a 400K big vocabulary and each token is represented by a 100 long vector. These vectors store the context and semantics of each token.
 
 Summary of our Seq2Seq model is the following:
-![Model summary](imgs/summary_milestone2.jpg?raw=true)
+![Model summary](imgs/summary_milestone2.png?raw=true)
 
 
 ### Evaluating
