@@ -41,9 +41,33 @@ docker run -p 8888:8888 --name dadteam_milestone1 balazska/dadteam:milestone1_v1
 After that, the jupyter notebook server can be reached at the http://localhost:8888/?token=TOKEN url, the full url will be displayed in the terminal window. 
 
 
-## Milestore II.
+## Milestone II.
+Our goal for Milestone II. was to understand the problem and the dataset, and to create and train a generally well-performing model. To this end, we used the **seq2seq** model and aimed to train the model on the request-reply set of dialogues, thus we do not use the context of the dialogue yet.
+### Preprocessing 
+
+Before training, we selected all the question-and-answer sentence pairs in the data set, where the question is a command or request made by the user (e.g. What day of the week is tomorrow?). And the answer is the program code required to answer the question, called Lispress (e.g. (Yield: output (: dayOfWeek (Tomorrow)))). Based on Lispress, the system would generate a human-readable response (e.g. Tomorrow is Wednesday.), however this is not used.
+
+Both the question and the answer are tokenized. The [Tokenizer](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/text/Tokenizer) class of tensorflow was used to tokenize the questions. However, to tokenize Lispress, we used the tokenizer used by the competition announcers due to the syntactic characteristics of the language. After tokenization, *<bos>* and *<eos>* tokens were added to the beginning and end of the lispress.
+    
+### Training
+#### Training set
+Since we are utilizing the Seq2Seq model which contains an Encoder and a Decoder the training set for our Model is not obvious.
+For training the input for the Encoder, the input for the Decoder and the output for the Decoder must be given. Therefore our trainingset looks like the following, where the *input sentence* is the user's request and the *current program* is the lispress for the input sentence.
+
+Num |Encoder input | Decoder input | Decoder output
+1.  |input sequence 1 | current program 1 first token | current program 1 second token
+2.  |input sequence 1 | current program 1 first two tokens | current program 1 2. and 3. tokens
+...
+n.  |input sequence 1 | current program 1 n-MAX_LEN_DEC-1 -> n-1 tokens | current program 1 n-MAX_LEN_DEC -> n tokens
+n+1.|input sequence 2 | ...
+
+#### Modeling
+    
+### Evaluating
 
 ### Docker
+A docker repository is also available for Milestone II. with the given command below:
 ```
 docker run -p 8888:8888 --name dadteam_milestone2 balazska/dadteam:milestone2_v1
 ```
+After that, the jupyter notebook server can be reached at the http://localhost:8888/?token=TOKEN url, the full url will be displayed in the terminal window. 
