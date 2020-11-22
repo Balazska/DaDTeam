@@ -43,6 +43,8 @@ After that, the jupyter notebook server can be reached at the http://localhost:8
 
 ## Milestone II.
 Our goal for Milestone II. was to understand the problem and the dataset, and to create and train a generally well-performing model. To this end, we used the **seq2seq** model and aimed to train the model on the request-reply set of dialogues, thus we do not use the context of the dialogue yet.
+
+The [notebook](./DaDTeam_milestone_II.ipynb) including all the codes is located in [this repository](https://github.com/Balazska/DaDTeam/blob/main/DaDTeam_milestone_II.ipynb).
 ### Preprocessing 
 
 Before training, we selected all the question-and-answer sentence pairs in the data set, where the question is a command or request made by the user (e.g. What day of the week is tomorrow?). And the answer is the program code required to answer the question, called Lispress (e.g. (Yield: output (: dayOfWeek (Tomorrow)))). Based on Lispress, the system would generate a human-readable response (e.g. Tomorrow is Wednesday.), however this is not used.
@@ -73,6 +75,14 @@ Summary of our Seq2Seq model is the following:
 
 
 ### Evaluating
+In the SMCalFlow challenge, they compute the absolute accuracy, which means every word of the result must be right to get points. We also calculate our model's goodness like this, counting only a prediction true positive if all of the program tokens were predicted right. 
+
+After the tokenization, our training set size turned out to be close to 5 million samples. Considering our best machine and its configuration, the training on the whole dataset takes approximately 55 hours. Before doing that, we did a smaller training on the fifth of it and then evaluated it to see if it is working fine. The accuracy of this test training was 11%. The model got the smaller codes right, but it had issues with more complex programs. It is not great, but we expected it to be something like this due to the dataset reduction and training of only three epochs.
+
+After the first successful training, we re-run it on the whole training dataset. We initiated the batch size to 128 and 10 epochs. Currently (updated at 11.22.), the training is still running. It prints out the loss and accuracy values for both the train and the validation set, and the results look very promising. After only the first few epochs, the validation accuracy is exceeding 60% percent.
+
+### Future plans
+We also started to learn about new ways of improving the model. We are currently experimenting with Bidirectional LSTM layers. Bidirectional LSTMs are an extension of LSTMs. They are trained on the input sequence as-is and also on the reversed copy of the input sequence. Using BLSTM layers, we can provide additional context to the network, so we hope our model will be more precise. Besides, the Glove embedding is mainly for natural speaking, and our goal is to predict program codes, so we searched for alternative solutions. We found a method called the Attention mechanism, which is a layer that highlights the relevant features of the input data dynamically. We are currently experimenting with its implementation.
 
 ### Docker
 A docker repository is also available for Milestone II. with the given command below:
