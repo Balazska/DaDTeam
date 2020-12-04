@@ -10,6 +10,14 @@ FROM $BASE_CONTAINER
 
 # Copy package.json and package-lock.json
 COPY ./DaDTeam_milestone_I.ipynb ./
+COPY ./DaDTeam_milestone_II.ipynb ./
+RUN mkdir glove
+COPY ./glove/glove.6B.100d.txt ./glove
+COPY ./lispress_tokenizer.py ./
+RUN mkdir models
+COPY ./models/model20201121_newtokenizer_50-50-1M.h5 ./models
+
 USER root
 RUN chown jovyan:users ./DaDTeam_milestone_I.ipynb
+RUN chown jovyan:users ./DaDTeam_milestone_II.ipynb
 
