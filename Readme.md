@@ -1,6 +1,8 @@
 # <center> We are the DaDTeam! </center>
 <center> Balazs Fodor, Szilvia Hodvogner, Gergely Dobreff </center>
 
+> The final solution can be found at the end of this readme [here](#final-solution)
+
 ## Goal
 We choose topic NLP2 (ChatBot based on deep learning) for the Deep Learning Course's homework. Our goal is to build a Neural Network for the [SMCalFlow challenge](https://microsoft.github.io/task_oriented_dialogue_as_dataflow_synthesis/). This competition was announced by Microsoft Semantic Machine, the motivation for this competition is that one of the central challenges in conversational AI is the design of a dialogue state representation that agents can use to reason about the information and actions available to them. They have developed a new representational framework for dialogue that enables efficient machine learning of complex conversations.
 
@@ -29,9 +31,10 @@ After that, with the deep analysis of the state of the art solutions, we will ex
 Our final goal is to create a model whose prediction outperforms the baseline solution.
 
 ## Running the codes
-The [notebook](./DaDTeam_milestone_I.ipynb) and the data is included in this repository, and it contains codes to download and install the necessary components and libraries. (It also contains code to download the data, but it is only necessary if only the notebook will be downloaded).
+Requirements: Python 3+ and tensorflow is assumed.
 
-Python 3+ and tensorflow is assumed.
+## Milestone I.
+The [notebook](./DaDTeam_milestone_I.ipynb) and the data is included in this repository, and it contains codes to download and install the necessary components and libraries. (It also contains code to download the data, but it is only necessary if only the notebook will be downloaded).
 
 ### Docker
 There is a docker repository for this project, the docker image containing the notebook for milestone 1 can be started with the following command:
@@ -90,3 +93,10 @@ A docker repository is also available for Milestone II. with the given command b
 docker run -p 8888:8888 --name dadteam_milestone2 balazska/dadteam:milestone2_v1
 ```
 After that, the jupyter notebook server can be reached at the http://localhost:8888/?token=TOKEN url, the full url will be displayed in the terminal window. 
+
+## Final solution:
+> the final report can be read [here](DL_NHF_2020__DaDTeam.pdf)
+
+> the final notebook can be accessed [here](DaDTeam_milestone_final.ipynb) 
+
+We are on our way to accomplish a solution to the SMCalFlow challenge problem, and according to our expectation and measuring, the model should score around 50-55\% accuracy. Currently, the best model contains a Bidirectional LSTM layered encoder and an LSTM decoder. It was trained with 192 hidden dimensions and also with an Attention layer. We prepared the input data with our specifically defined yet manual parameter replacement. For submitting this solution, we will need to make improvements in the parameter replacement mechanism. Our future work includes creating an automatic method for finding and replacing parameters in the input question and restoring them back to the parameters' values in the output code. After that, we will examine the final accuracy with and without the preparation. We also plan to do more hyperparameter tuning and examine the impact of increasing the number of Bidirectional and LSTM layers to find the most suitable submission model.
