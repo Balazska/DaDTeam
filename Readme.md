@@ -96,4 +96,5 @@ Google Colab is recommended to run the Notebook.
     - RUN_MODE can be either RUN_TESTMODE or RUN_FULLMODE 
     - ATTENTION_LAYER can be True or False
     - HIDDEN_DIM, BATCH_SIZE, EPOCHS can be an arbitrary integer
+    - PARAMETER_REPLACEMENT can be True or False
 4. Run every cell and wait :)
