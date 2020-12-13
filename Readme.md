@@ -86,3 +86,14 @@ We also started to learn about new ways of improving the model. We are currently
 
 ### Abstract
 The main challenge in conversational AI is to maintain the state of the conversation. To address this issue, Microsoft announced a challenge whose goal is to create such methods. We investigated the popular LSTM-based sequence to sequence model, and its extension with Attention and Bidirectional LSTM layers and evaluated its accuracy and the effect of different hyperparameters. The goal of the model was to generate a so called lispress program that represents the state of the conversational agent. The main difficulty is that every predicted token for a given input has to be correct in order for the prediction to be correct. Our model's accuracy could reach around 50-55%, and we are getting closer to submit our first solution to the challenge.
+
+### Running the final Notebook
+Google Colab is recommended to run the Notebook.
+1. Upload the lispress_tokenizer.py file from the repository to the Colab's working directory
+2. In the cell below the heading Glove, the appropriate rows should be uncommented. Since Colab does not have Glove downloaded, comment everything, but keep uncommented the lines below "GLOVE DOWNLOAD (IF NECESSARY)". Run the cell and the cell below (DOWNLOAD DATA), which downloads the SMCalFlow dataset.
+3. Set the control variables in the next cell (Notebook control variables). For the meaning of the variables see Sec. 3.4. in the final report.
+    - MODEL_TYPE can be either MODEL_BILSTM or MODEL_LSTM
+    - RUN_MODE can be either RUN_TESTMODE or RUN_FULLMODE 
+    - ATTENTION_LAYER can be True or False
+    - HIDDEN_DIM, BATCH_SIZE, EPOCHS can be an arbitrary integer
+4. Run every cell and wait :)
