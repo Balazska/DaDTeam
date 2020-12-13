@@ -1,5 +1,5 @@
 # <center> We are the DaDTeam! </center>
-<center> Balazs Fodor, Szilvia Hodvogner, Gergely Dobreff </center>
+<center> Balazs Fodor (GU87AO), Szilvia Hodvogner (W0VGDG), Gergely Dobreff (RZ3RVX) </center>
 
 > The final solution can be found at the end of this readme [here](#final-solution)
 
@@ -35,14 +35,6 @@ Requirements: Python 3+ and tensorflow is assumed.
 
 ## Milestone I.
 The [notebook](./DaDTeam_milestone_I.ipynb) and the data is included in this repository, and it contains codes to download and install the necessary components and libraries. (It also contains code to download the data, but it is only necessary if only the notebook will be downloaded).
-
-### Docker
-There is a docker repository for this project, the docker image containing the notebook for milestone 1 can be started with the following command:
-```
-docker run -p 8888:8888 --name dadteam_milestone1 balazska/dadteam:milestone1_v1
-```
-After that, the jupyter notebook server can be reached at the http://localhost:8888/?token=TOKEN url, the full url will be displayed in the terminal window. 
-
 
 ## Milestone II.
 Our goal for Milestone II. was to understand the problem and the dataset, and to create and train a generally well-performing model. To this end, we used the **seq2seq** model and aimed to train the model on the request-reply set of dialogues, thus we do not use the context of the dialogue yet.
@@ -87,16 +79,10 @@ After the first successful training, we re-run it on the whole training dataset.
 ### Future plans
 We also started to learn about new ways of improving the model. We are currently experimenting with Bidirectional LSTM layers. Bidirectional LSTMs are an extension of LSTMs. They are trained on the input sequence as-is and also on the reversed copy of the input sequence. Using BLSTM layers, we can provide additional context to the network, so we hope our model will be more precise. Besides, the Glove embedding is mainly for natural speaking, and our goal is to predict program codes, so we searched for alternative solutions. We found a method called the Attention mechanism, which is a layer that highlights the relevant features of the input data dynamically. We are currently experimenting with its implementation.
 
-### Docker
-A docker repository is also available for Milestone II. with the given command below:
-```
-docker run -p 8888:8888 --name dadteam_milestone2 balazska/dadteam:milestone2_v1
-```
-After that, the jupyter notebook server can be reached at the http://localhost:8888/?token=TOKEN url, the full url will be displayed in the terminal window. 
-
 ## Final solution:
 > the final report can be read [here](DL_NHF_2020__DaDTeam.pdf)
 
 > the final notebook can be accessed [here](DaDTeam_milestone_final.ipynb) 
 
-We are on our way to accomplish a solution to the SMCalFlow challenge problem, and according to our expectation and measuring, the model should score around 50-55\% accuracy. Currently, the best model contains a Bidirectional LSTM layered encoder and an LSTM decoder. It was trained with 192 hidden dimensions and also with an Attention layer. We prepared the input data with our specifically defined yet manual parameter replacement. For submitting this solution, we will need to make improvements in the parameter replacement mechanism. Our future work includes creating an automatic method for finding and replacing parameters in the input question and restoring them back to the parameters' values in the output code. After that, we will examine the final accuracy with and without the preparation. We also plan to do more hyperparameter tuning and examine the impact of increasing the number of Bidirectional and LSTM layers to find the most suitable submission model.
+### Abstract
+The main challenge in conversational AI is to maintain the state of the conversation. To address this issue, Microsoft announced a challenge whose goal is to create such methods. We investigated the popular LSTM-based sequence to sequence model, and its extension with Attention and Bidirectional LSTM layers and evaluated its accuracy and the effect of different hyperparameters. The goal of the model was to generate a so called lispress program that represents the state of the conversational agent. The main difficulty is that every predicted token for a given input has to be correct in order for the prediction to be correct. Our model's accuracy could reach around 50-55%, and we are getting closer to submit our first solution to the challenge.
