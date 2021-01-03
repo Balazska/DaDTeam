@@ -1,7 +1,7 @@
 # <center> We are the DaDTeam! </center>
 <center> Balazs Fodor (GU87AO), Szilvia Hodvogner (W0VGDG), Gergely Dobreff (RZ3RVX) </center>
 
-> The final solution and the presentation and can be found at the end of this readme [here](#final-solution)
+> The final solution and the presentation can be found at the end of this readme [here](#final-solution)
 
 ## Goal
 We choose topic NLP2 (ChatBot based on deep learning) for the Deep Learning Course's homework. Our goal is to build a Neural Network for the [SMCalFlow challenge](https://microsoft.github.io/task_oriented_dialogue_as_dataflow_synthesis/). This competition was announced by Microsoft Semantic Machine, the motivation for this competition is that one of the central challenges in conversational AI is the design of a dialogue state representation that agents can use to reason about the information and actions available to them. They have developed a new representational framework for dialogue that enables efficient machine learning of complex conversations.
