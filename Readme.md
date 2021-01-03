@@ -1,7 +1,7 @@
 # <center> We are the DaDTeam! </center>
 <center> Balazs Fodor (GU87AO), Szilvia Hodvogner (W0VGDG), Gergely Dobreff (RZ3RVX) </center>
 
-> The final solution can be found at the end of this readme [here](#final-solution)
+> The final solution and the presentation and can be found at the end of this readme [here](#final-solution)
 
 ## Goal
 We choose topic NLP2 (ChatBot based on deep learning) for the Deep Learning Course's homework. Our goal is to build a Neural Network for the [SMCalFlow challenge](https://microsoft.github.io/task_oriented_dialogue_as_dataflow_synthesis/). This competition was announced by Microsoft Semantic Machine, the motivation for this competition is that one of the central challenges in conversational AI is the design of a dialogue state representation that agents can use to reason about the information and actions available to them. They have developed a new representational framework for dialogue that enables efficient machine learning of complex conversations.
@@ -83,6 +83,10 @@ We also started to learn about new ways of improving the model. We are currently
 > the final report can be read [here](DL_NHF_2020__DaDTeam.pdf)
 
 > the final notebook can be accessed [here](DaDTeam_milestone_final.ipynb) 
+
+> the presentation slides can be read [here](DL_NHF_2020__DaDTeam_beszamolo_ppt.pdf)
+
+> the presentation video located in [here](https://youtu.be/4OwQylTfA4c)
 
 ### Abstract
 The main challenge in conversational AI is to maintain the state of the conversation. To address this issue, Microsoft announced a challenge whose goal is to create such methods. We investigated the popular LSTM-based sequence to sequence model, and its extension with Attention and Bidirectional LSTM layers and evaluated its accuracy and the effect of different hyperparameters. The goal of the model was to generate a so called lispress program that represents the state of the conversational agent. The main difficulty is that every predicted token for a given input has to be correct in order for the prediction to be correct. Our model's accuracy could reach around 50-55%, and we are getting closer to submit our first solution to the challenge.
